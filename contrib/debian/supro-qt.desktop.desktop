@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Supro
+Comment=Supro P2P Cryptocurrency
+Exec=supro-qt %u
+Terminal=false
+Type=Application
+Icon=supro128
+MimeType=x-scheme-handler/supro;
+Categories=Office;Finance;
+Name[en_US]=supro-qt.desktop

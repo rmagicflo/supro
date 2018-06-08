@@ -1,0 +1,26 @@
+# /etc/conf.d/suprod: config file for /etc/init.d/suprod
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/supro/supro.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/suprod"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/suprod.pid"
+
+# Where to write suprod data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/suprod"
+
+# User and group to own suprod process
+#BITCOIND_USER="supro"
+#BITCOIND_GROUP="supro"
+
+# Path to suprod executable
+#BITCOIND_BIN="/usr/bin/suprod"
+
+# Nice value to run suprod under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

@@ -1,0 +1,26 @@
+[Unit]
+Description=Supro's distributed currency daemon
+After=network.target
+
+[Service]
+User=supro
+Group=supro
+
+Type=forking
+PIDFile=/var/lib/suprod/suprod.pid
+
+ExecStart=/usr/bin/suprod -daemon -pid=/var/lib/suprod/suprod.pid \
+          -conf=/etc/supro/supro.conf -datadir=/var/lib/suprod
+
+ExecStop=-/usr/bin/supro-cli -conf=/etc/supro/supro.conf \
+         -datadir=/var/lib/suprod stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
