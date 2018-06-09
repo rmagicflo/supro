@@ -53,31 +53,31 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of (0, uint256("0x00000c71bc6dc34792084a9b0ee61e8ed5ea9fc11b17567aad0a6a80ea436e5e"));
+    boost::assign::map_list_of (0, uint256("0x000003d3a443a7260e7852e251d9ce6ad0164d60a28b789333925761adf359c9"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1528441200, // * UNIX timestamp of last checkpoint block
+    1528610400, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x000000f19f2d4466fc6fd92af18bebff75f8a4b90e10e8d1f96f984bad053d04"));
+    boost::assign::map_list_of(0, uint256("0x000002f4440f1cd29910c79780d15bbc1fcdd89f013198a070118e9afe154e48"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1528441201,
+    1528610401,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x00000bd8074fc2e9b0d755465c6d65156c4dc5d2ef0a69c63f51af85e9cb3765"));
+    boost::assign::map_list_of(0, uint256("0x000002db10c27e40380f34fd835d31637ebb8ff08922c0a358469616890a8e85"));
 	
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1528441202,
+    1528610402,
     0,
     100};
 
@@ -117,18 +117,18 @@ public:
         nModifierUpdateBlock = 1; // we use the version 2 for SP
 
         /**
-        * python genesis.py -a quark-hash -z "France slashes cryptocurrency tax rate from 45 percent to a flat rate 19 percent" -t 1528441200 -v 0 -p 04535eca5c7d5366da60759568831550578e46d9c637ac214a66781319785a6e537403ecac89690e377273f6666701cdf9ecb66ca75ad9dbb3708044ff6af6dfd9
+        * python genesis.py -a quark-hash -z "France slashes cryptocurrency tax rate from 45 percent to a flat rate 19 percent" -t 1528610400 -v 0 -p 04535eca5c7d5366da60759568831550578e46d9c637ac214a66781319785a6e537403ecac89690e377273f6666701cdf9ecb66ca75ad9dbb3708044ff6af6dfd9
 		* 04ffff001d01044c504672616e636520736c61736865732063727970746f63757272656e63792074617820726174652066726f6d2034352070657263656e7420746f206120666c617420726174652031392070657263656e74
 		* algorithm: quark-hash
 		* merkle hash: e0e89d2fcef38755c6233f172f7d5c458d51f417cb504d2d591dcff39f4918cf
 		* pszTimestamp: France slashes cryptocurrency tax rate from 45 percent to a flat rate 19 percent
 		* pubkey: 04535eca5c7d5366da60759568831550578e46d9c637ac214a66781319785a6e537403ecac89690e377273f6666701cdf9ecb66ca75ad9dbb3708044ff6af6dfd9
-		* time: 1528441200
+		* time: 1528610400
 		* bits: 0x1e0ffff0
 		* Searching for genesis hash..
-		* genesis hash found!
-		* nonce: 3678
-		* genesis hash: 00000c71bc6dc34792084a9b0ee61e8ed5ea9fc11b17567aad0a6a80ea436e5e
+		* 44192.0 hash/s, estimate: 27.0 hgenesis hash found!
+		* nonce: 2245511
+		* genesis hash: 000003d3a443a7260e7852e251d9ce6ad0164d60a28b789333925761adf359c9
          */
         const char* pszTimestamp = "France slashes cryptocurrency tax rate from 45 percent to a flat rate 19 percent";
         CMutableTransaction txNew;
@@ -141,12 +141,12 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1528441200;
+        genesis.nTime = 1528610400;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3678;
+        genesis.nNonce = 2245511;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000c71bc6dc34792084a9b0ee61e8ed5ea9fc11b17567aad0a6a80ea436e5e"));
+        assert(hashGenesisBlock == uint256("0x000003d3a443a7260e7852e251d9ce6ad0164d60a28b789333925761adf359c9"));
         assert(genesis.hashMerkleRoot == uint256("0xe0e89d2fcef38755c6233f172f7d5c458d51f417cb504d2d591dcff39f4918cf"));
 
         // DNS Seeding
@@ -219,11 +219,11 @@ public:
         nMaxMoneyOut = 50000000 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1528441201;
-        genesis.nNonce = 255665;
+        genesis.nTime = 1528610401;
+        genesis.nNonce = 921896;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000000f19f2d4466fc6fd92af18bebff75f8a4b90e10e8d1f96f984bad053d04"));
+        assert(hashGenesisBlock == uint256("0x000002f4440f1cd29910c79780d15bbc1fcdd89f013198a070118e9afe154e48"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -284,13 +284,13 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Supro: 1 day
         nTargetSpacing = 1 * 60;        // Supro: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1528441202;
+        genesis.nTime = 1528610402;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1905117;
+        genesis.nNonce = 118434;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 49113;
-        assert(hashGenesisBlock == uint256("0x00000bd8074fc2e9b0d755465c6d65156c4dc5d2ef0a69c63f51af85e9cb3765"));
+        assert(hashGenesisBlock == uint256("0x000002db10c27e40380f34fd835d31637ebb8ff08922c0a358469616890a8e85"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Regtest mode doesn't have any DNS seeds.
