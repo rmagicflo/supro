@@ -105,7 +105,29 @@ UniValue masternode(const UniValue& params, bool fHelp)
         return masternodeconnect(newParams, fHelp);
     }
 
-    if (strCommand == "count") {
+    if (strCommand == "count")
+   {
+        if (params.size() > 2)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Too many parameters");
+
+        if (params.size() == 1)
+            return mnodeman.size();
+
+        std::string strMode = params[1].get_str();
+
+        if (strMode == "enabled")
+            return mnodeman.CountEnabled();
+
+        int nCount;
+
+        if (strMode == "qualify")
+            return nCount;
+
+        if (strMode == "all")
+            return strprintf("Total: %d (Enabled: %d / Qualify: %d)",
+                mnodeman.size(),
+                mnodeman.CountEnabled(), nCount);
+
         UniValue newParams(UniValue::VARR);
         // forward params but skip command
         for (unsigned int i = 1; i < params.size(); i++) {
