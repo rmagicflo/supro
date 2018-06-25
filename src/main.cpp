@@ -1651,28 +1651,12 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 44 * COIN;
     else if (nHeight > 15000 && nHeight <= 20000)
         nSubsidy = 47 * COIN;
-    else if (nHeight > 20000 && nHeight <= 25000)
+    else if (nHeight > 20000 && nHeight <= 24500)
         nSubsidy = 60 * COIN;
-    else if (nHeight > 25000 && nHeight <= 30000)
-        nSubsidy = 90	* COIN;
-    else if (nHeight > 30000 && nHeight <= 35000)
-        nSubsidy = 180 * COIN;
-    else if (nHeight > 35000 && nHeight <= 40000)
-        nSubsidy = 230 * COIN;
-    else if (nHeight > 40000 && nHeight <= 45000)
-        nSubsidy = 280 * COIN;
-    else if (nHeight > 45000 && nHeight <= 55000)
-        nSubsidy = 360 * COIN;
-    else if (nHeight > 55000 && nHeight <= 60000)
-        nSubsidy = 580 * COIN;
-    else if (nHeight > 60000 && nHeight <= 65000)
-        nSubsidy = 240 * COIN;
-    else if (nHeight > 65000 && nHeight <= 70000)
-        nSubsidy = 120 * COIN;
-    else if (nHeight > 70000 && nHeight <= 80000)
-        nSubsidy = 60 * COIN;
+    else if (nHeight > 24500 && nHeight <= 80000)
+        nSubsidy = 0.3	* COIN;
     else
-        nSubsidy = 50 * COIN;
+        nSubsidy = 0.3 * COIN;
 
     // Check if we reached the coin max supply.
     int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
@@ -1693,9 +1677,12 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     // No rewards till masternode activation.
     if (nHeight < Params().LAST_POW_BLOCK() || blockValue == 0)
         return 0;
-
-    // Check if we reached coin supply
-    ret = blockValue * 0.9; // 90% of block reward
+	else if (nHeight <= 24500)
+        ret = blockValue * 0.9; // 90% of block reward
+	else if (nHeight > 24500 && nHeight <= 80000)
+        ret = blockValue * 0.5; // 50% of block reward
+    else
+        ret = blockValue * 0.5; // 50% of block reward
 
     return ret;
 }
