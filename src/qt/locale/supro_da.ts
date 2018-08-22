@@ -136,6 +136,10 @@
         <translation>Slår ligegyldige afsendelser fra, når operativsystemets konto er kompromitteret. Denne funktion giver ikke ægte sikkerhed</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Indtast et password til tegnebogen. &lt;br/&gt; Brug mindst 10 karakterer&lt;b&gt;eller&lt;b&gt; mindst 8 ord&lt;b&gt;.</translation>
     </message>
@@ -2481,7 +2485,7 @@ Kontroller adressen og prøv igen.</translation>
         <translation>Penge tilbage:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
         <translation>Hvis denne er aktiveret, men tilbagebetalingsadressen er tom, eller ugyldig, overskydende beløb vil blive fremsendt til en nyoprettet adresse</translation>
     </message>
     <message>
@@ -3249,7 +3253,7 @@ Kontroller adressen og prøv igen.</translation>
         <translation>Modtaget fra</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Sendt til</translation>
     </message>
     <message>
@@ -3340,7 +3344,7 @@ Kontroller adressen og prøv igen.</translation>
         <translation>Modtaget med</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Sendt til</translation>
     </message>
     <message>
@@ -3892,8 +3896,8 @@ For eksempel: alertnotify=Echo %% | mail - s "Supro ALARM!" e-mail@administrator
         <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core Developers</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

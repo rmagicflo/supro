@@ -170,6 +170,11 @@
         <translation>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>For staking only</source>
+        <translation>For staking only</translation>
+    </message>
+    <message>
         <location filename="../askpassphrasedialog.cpp" line="+44"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
@@ -2473,7 +2478,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+43"/>
-        <source>Balances</source>
+        <source>SP Balances</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3559,8 +3564,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+44"/>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
-        <translation>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</translation>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4596,8 +4601,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="-14"/>
-        <source>Send</source>
-        <translation>Send</translation>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
     </message>
     <message>
         <location line="-44"/>
@@ -4710,8 +4715,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+1"/>
-        <source>Send</source>
-        <translation>Send</translation>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -5378,7 +5383,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Supro Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) %i The Supro Core Developers</source>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

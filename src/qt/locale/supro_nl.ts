@@ -2395,7 +2395,7 @@ MultiSend: %1</translation>
         <translation>Ontvangen van</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Verzenden naar</translation>
     </message>
     <message>
@@ -2438,7 +2438,7 @@ MultiSend: %1</translation>
         <translation>Ontvangen met</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Verzenden naar</translation>
     </message>
     <message>
@@ -2625,8 +2625,8 @@ MultiSend: %1</translation>
         <translation>Copyright (C) 2015-%i The PIVX Core Ontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core Ontwikkelaars</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core Ontwikkelaars</translation>
     </message>
     <message>
         <source>Debugging/Testing options:</source>

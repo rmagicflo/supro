@@ -64,13 +64,31 @@
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_Master" stretch="0,1">
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
          <widget class="QFrame" name="frame_Header">
           <layout class="QVBoxLayout" name="verticalLayout_Header" stretch="0">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -175,7 +193,7 @@
                        </font>
                       </property>
                       <property name="text">
-                       <string>Balances</string>
+                       <string>SP Balances</string>
                       </property>
                      </widget>
                     </item>
@@ -315,7 +333,7 @@
                     <item row="4" column="0">
                      <widget class="QLabel" name="labelTotalText">
                       <property name="text">
-                       <string>Total:</string>
+                       <string>Total</string>
                       </property>
                       <property name="textInteractionFlags">
                        <set>Qt::NoTextInteraction</set>
@@ -363,7 +381,7 @@
                     <item row="3" column="0">
                      <widget class="QLabel" name="labelImmatureText">
                       <property name="text">
-                       <string>Immature:</string>
+                       <string>Immature</string>
                       </property>
                       <property name="textInteractionFlags">
                        <set>Qt::NoTextInteraction</set>
@@ -433,7 +451,7 @@
                     <item row="1" column="0">
                      <widget class="QLabel" name="labelBalanceText">
                       <property name="text">
-                       <string>Available:</string>
+                       <string>Available</string>
                       </property>
                       <property name="textInteractionFlags">
                        <set>Qt::NoTextInteraction</set>
@@ -493,7 +511,7 @@
                     <item row="2" column="0">
                      <widget class="QLabel" name="labelPendingText">
                       <property name="text">
-                       <string>Pending:</string>
+                       <string>Pending</string>
                       </property>
                       <property name="textInteractionFlags">
                        <set>Qt::NoTextInteraction</set>

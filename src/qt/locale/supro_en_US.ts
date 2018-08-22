@@ -136,6 +136,10 @@
         <translation>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation>For staking only</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
@@ -2533,8 +2537,8 @@ Please check the address and try again.</translation>
         <translation>Change:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
-        <translation>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</translation>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
+        <translation>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</translation>
     </message>
     <message>
         <source>Custom change address</source>
@@ -3317,8 +3321,8 @@ Please check the address and try again.</translation>
         <translation>Received from</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>Send</translation>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
     </message>
     <message>
         <source>Orphan Block - Generated but not accepted. This does not impact your holdings.</source>
@@ -3408,8 +3412,8 @@ Please check the address and try again.</translation>
         <translation>Received with</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>Send</translation>
+        <source>Sent to</source>
+        <translation>Sent to</translation>
     </message>
     <message>
         <source>To yourself</source>
@@ -3959,8 +3963,8 @@ for example: alertnotify=echo %%s | mail -s "Supro Alert" admin@foo.com
         <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core Developers</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

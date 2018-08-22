@@ -136,6 +136,10 @@
         <translation>Sirve para desactivar el envío de dinero cuando la cuenta del SO está comprometida. No provee de una seguridad real</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation>Solo para staking</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Escriba la nueva contraseña para la Wallet. &lt;br/&gt;Por favor utilice una contraseña de &lt;b&gt;10 o más caracteres aleatorios&lt;/b&gt;, u &lt;b&gt; ocho o más palabras&lt;/b&gt;</translation>
     </message>
@@ -1738,8 +1742,8 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>Balances</source>
-        <translation>Balances</translation>
+        <source>SP Balances</source>
+        <translation>Balances SP</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -2505,7 +2509,7 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Cambio:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
         <translation>Si esto está activado, pero la dirección de cambio está vacía o es inválida, el cambio será mandado a una nueva dirección generada.</translation>
     </message>
     <message>
@@ -3269,7 +3273,7 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Recibido desde</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Enviado a</translation>
     </message>
     <message>
@@ -3360,7 +3364,7 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
         <translation>Recibido con</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Enviado a</translation>
     </message>
     <message>
@@ -3911,8 +3915,8 @@ por ejemplo: alertnotify=echo %%s | mail -s "Supro Alert" admin@foo.com
         <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core Developers</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

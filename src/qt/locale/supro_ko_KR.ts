@@ -136,6 +136,10 @@
         <translation>운영체제 계정이 손상되었을 때 일반적인 송금을 비활성화 합니다. 실질적인 보안을 제공하지 않습니다.</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>지갑에 새로운 암호를 입력해주세요. &lt;br/&gt;&lt;b&gt;10자리 이상의 임의의 문자&lt;/b&gt; 또는, &lt;b&gt;8개 이상의 단어&lt;/b&gt;로 구성된 암호를 입력해주세요.</translation>
     </message>
@@ -2486,7 +2490,7 @@ Please check the address and try again.</source>
         <translation>변경:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
         <translation>이 옵션이 활성화되었지만, 변경 주소가 비어있거나 유효하지 않은 경우 변경사항은 새로 생성된 주소로 전송됩니다.</translation>
     </message>
     <message>
@@ -3251,7 +3255,7 @@ Please check the address and try again.</source>
         <translation>발신원</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>대상 전송</translation>
     </message>
     <message>
@@ -3342,7 +3346,7 @@ Please check the address and try again.</source>
         <translation>수신 됨</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>대상 전송</translation>
     </message>
     <message>
@@ -3893,8 +3897,8 @@ rpcpassword=%s
         <translation>Copyright (C) 2015-%i The PIVX Core 개발자</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core 개발자</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core 개발자</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

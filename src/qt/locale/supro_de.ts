@@ -136,6 +136,10 @@
         <translation>Verhindert das einfache Überweisen von Geld, falls das Systemkonto kompromittiert wurde. Bietet keine wirkliche Sicherheit.</translation>
     </message>
     <message>
+        <source>For staking only</source>
+        <translation>Nur für Staking entsperren</translation>
+    </message>
+    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte benutzen Sie eine Passphrase bestehend aus &lt;b&gt;10 oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;8 oder mehr Wörtern&lt;/b&gt;.</translation>
     </message>
@@ -1749,8 +1753,8 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Formular</translation>
     </message>
     <message>
-        <source>Balances</source>
-        <translation>Bilanzen</translation>
+        <source>SP Balances</source>
+        <translation>SP Bilanzen</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -2528,7 +2532,7 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Wechselgeld:</translation>
     </message>
     <message>
-        <source>If this is activated, but the change address is empty or invalid, change will be Send a newly generated address.</source>
+        <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
         <translation>Wenn dies aktivert, und die Wechselgeld-Adresse leer oder ungültig ist, wird das Wechselgeld einer neu erzeugten Adresse gutgeschrieben.</translation>
     </message>
     <message>
@@ -3316,7 +3320,7 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Empfangen von</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
     <message>
@@ -3407,7 +3411,7 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Empfangen über</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
     <message>
@@ -3734,8 +3738,8 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) %i The Supro Core Developers</translation>
+        <source>Copyright (C) 2017-%i The Supro Core Developers</source>
+        <translation>Copyright (C) 2017-%i The Supro Core Developers</translation>
     </message>
     <message>
         <source>Error</source>

@@ -17,6 +17,7 @@
 #include "kernel.h"
 #include "masternode-budget.h"
 #include "masternode-payments.h"
+#include "masternode-vote.h"
 #include "masternodeman.h"
 #include "merkleblock.h"
 #include "net.h"
@@ -1653,10 +1654,28 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 47 * COIN;
     else if (nHeight > 20000 && nHeight <= 24500)
         nSubsidy = 60 * COIN;
-    else if (nHeight > 24500 && nHeight <= 80000)
+    else if (nHeight > 24500 && nHeight <= 115000)
         nSubsidy = 0.3	* COIN;
-    else
-        nSubsidy = 0.3 * COIN;
+	else if (nHeight > 115000 && nHeight <= 120000)
+        nSubsidy = 60	* COIN;
+	else if (nHeight > 120000 && nHeight <= 125000)
+        nSubsidy = 90	* COIN;
+	else if (nHeight > 125000 && nHeight <= 130000)
+        nSubsidy = 180	* COIN;
+	else if (nHeight > 130000 && nHeight <= 135000)
+        nSubsidy = 230	* COIN;
+	else if (nHeight > 135000 && nHeight <= 140000)
+        nSubsidy = 280	* COIN;
+	else if (nHeight > 140000 && nHeight <= 145000)
+        nSubsidy = 360	* COIN;
+	else if (nHeight > 145000 && nHeight <= 150000)
+        nSubsidy = 480	* COIN;
+	else if (nHeight > 150000 && nHeight <= 165000)
+        nSubsidy = 500	* COIN;
+	else if (nHeight > 165000 && nHeight <= 175000)
+        nSubsidy = 250	* COIN;
+    else 
+        nSubsidy = 100 * COIN;
 
     // Check if we reached the coin max supply.
     int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
@@ -1679,10 +1698,10 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
         return 0;
 	else if (nHeight <= 24500)
         ret = blockValue * 0.9; // 90% of block reward
-	else if (nHeight > 24500 && nHeight <= 80000)
+	else if (nHeight > 24500 && nHeight <= 115000)
         ret = blockValue * 0.5; // 50% of block reward
     else
-        ret = blockValue * 0.5; // 50% of block reward
+        ret = blockValue * 0.9; // 90% of block reward
 
     return ret;
 }
@@ -2219,7 +2238,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     //PoW phase redistributed fees to miner. PoS stage destroys fees.
     CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
-    if (block.IsProofOfWork())
+    if (block.IsProofOfWork() || Params().NetworkID() != CBaseChainParams::MAIN || chainActive.Height() >= SOFT_FORK_VERSION_110)
         nExpectedMint += nFees;
 
     if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint)) {
@@ -3554,6 +3573,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         if (masternodeSync.RequestedMasternodeAssets > MASTERNODE_SYNC_LIST) {
             masternodePayments.ProcessBlock(GetHeight() + 10);
             budget.NewBlock();
+            communityVote.NewBlock();
         }
     }
 
@@ -4356,6 +4376,12 @@ bool static AlreadyHave(const CInv& inv)
         return false;
     case MSG_MASTERNODE_PING:
         return mnodeman.mapSeenMasternodePing.count(inv.hash);
+    case MSG_COMMUNITY_PROPOSAL:
+        if (communityVote.mapSeenMasternodeCommunityProposals.count(inv.hash)) {
+            masternodeSync.AddedCommunityItem(inv.hash);
+            return true;
+        }
+        return false;
     }
     // Don't know what it is, just say we already got one
     return true;
@@ -4551,6 +4577,16 @@ void static ProcessGetData(CNode* pfrom)
                         ss.reserve(1000);
                         ss << mnodeman.mapSeenMasternodePing[inv.hash];
                         pfrom->PushMessage("mnp", ss);
+                        pushed = true;
+                    }
+                }
+
+                if (!pushed && inv.type == MSG_COMMUNITY_PROPOSAL) {
+                    if (communityVote.mapSeenMasternodeCommunityProposals.count(inv.hash)) {
+                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                        ss.reserve(1000);
+                        ss << communityVote.mapSeenMasternodeCommunityProposals[inv.hash];
+                        pfrom->PushMessage("mcprop", ss);
                         pushed = true;
                     }
                 }
@@ -5348,6 +5384,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         //probably one the extensions
         mnodeman.ProcessMessage(pfrom, strCommand, vRecv);
         budget.ProcessMessage(pfrom, strCommand, vRecv);
+        communityVote.ProcessMessage(pfrom, strCommand, vRecv);
         masternodePayments.ProcessMessageMasternodePayments(pfrom, strCommand, vRecv);
         ProcessMessageSwiftTX(pfrom, strCommand, vRecv);
         ProcessSpork(pfrom, strCommand, vRecv);
@@ -5364,20 +5401,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
+    if (chainActive.Height() >= SOFT_FORK_VERSION_110)
+       return MIN_PEER_PROTO_VERSION_COMMUNITY_PROPOSALS;
 
-    // SPORK_14 was used for 70910. Leave it 'ON' so they don't see > 70910 nodes. They won't react to SPORK_15
-    // messages because it's not in their code
-
-/*    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
-            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-*/
-
-    // SPORK_15 is used for 70911. Nodes < 70911 don't see it and still get their protocol version via SPORK_14 and their
-    // own ModifierUpgradeBlock()
-
-    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
-            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-    return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
+    return MIN_PEER_PROTO_VERSION;
 }
 
 // requires LOCK(cs_vRecvMsg)

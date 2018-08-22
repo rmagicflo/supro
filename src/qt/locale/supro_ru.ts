@@ -2762,7 +2762,7 @@ Please check the address and try again.</source>
         <translation>Вознаграждение Мастерноды</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Отправить</translation>
     </message>
     <message>
@@ -2801,7 +2801,7 @@ Please check the address and try again.</source>
         <translation>Диапазон...</translation>
     </message>
     <message>
-        <source>Send</source>
+        <source>Sent to</source>
         <translation>Отправить</translation>
     </message>
     <message>
