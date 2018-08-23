@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The Supro developers
+// Copyright (c) 2017-2017 The Bitcoin Green developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -377,12 +377,12 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         pblock->nNonce = 0;
         pblocktemplate->vTxSigOps[0] = GetLegacySigOpCount(pblock->vtx[0]);
 
-        // CValidationState state;
-        // if (!TestBlockValidity(state, *pblock, pindexPrev, false, false)) {
-        //     LogPrintf("CreateNewBlock() : TestBlockValidity failed\n");
-        //     mempool.clear();
-        //     return NULL;
-        // }
+        CValidationState state;
+        if (!TestBlockValidity(state, *pblock, pindexPrev, false, false)) {
+            LogPrintf("CreateNewBlock() : TestBlockValidity failed\n");
+            mempool.clear();
+            return NULL;
+        }
     }
 
     return pblocktemplate.release();
@@ -486,22 +486,16 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 continue;
             }
 
-            while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance())) {
+            if (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins ||
+                (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) ||
+                !masternodeSync.IsSynced()) {
                 nLastCoinStakeSearchInterval = 0;
-                // Do a separate 1 minute check here to ensure fMintableCoins is updated
-                if (!fMintableCoins) {
-                    if (GetTime() - nMintableLastCheck > 1 * 60) { // 1 minute check time
-                        nMintableLastCheck = GetTime();
-                        fMintableCoins = pwallet->MintableCoins();
-                    }
-                }
                 MilliSleep(5000);
-                if (!fGenerateBitcoins && !fProofOfStake)
-                    continue;
+                continue;
             }
 
             if (mapHashedBlocks.count(chainActive.Tip()->nHeight)) { //search our map of hashed blocks, see if bestblock has been hashed yet
-                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < max(pwallet->nHashInterval, (unsigned int)1)) { // wait half of the nHashDrift with max wait of 5 minutes
+                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < max(pwallet->nHashInterval, (unsigned int)1)) { // wait half of the nHashDrift with max wait of 3 minutes
                     MilliSleep(5000);
                     continue;
                 }
