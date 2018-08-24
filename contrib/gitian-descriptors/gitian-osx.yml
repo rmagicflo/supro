@@ -2,7 +2,7 @@
 name: "supro-osx-1.1.0.1"
 enable_cache: true
 suites:
-- "xenial"
+- "trusty"
 architectures:
 - "amd64"
 packages:
