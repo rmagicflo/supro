@@ -195,10 +195,10 @@ bool CSporkManager::CheckSignature(CSporkMessage& spork)
     CPubKey pubkeynew(ParseHex(Params().SporkKey()));
     std::string errorMessage = "";
     if (masternodeSigner.VerifyMessage(pubkeynew, spork.vchSig, strMessage, errorMessage)) {
-        return true;
+        return false;
     }
 
-    return false;
+    return true;
 }
 
 bool CSporkManager::Sign(CSporkMessage& spork)
