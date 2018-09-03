@@ -1654,25 +1654,57 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 47 * COIN;
     else if (nHeight > 20000 && nHeight <= 24500)
         nSubsidy = 60 * COIN;
-    else if (nHeight > 24500 && nHeight <= 115000)
+    else if (nHeight > 24500 && nHeight <= 130000)
         nSubsidy = 0.3	* COIN;
-	else if (nHeight > 115000 && nHeight <= 120000)
+	else if (nHeight > 130000 && nHeight <= 140000)
+        nSubsidy = 10	* COIN;
+	else if (nHeight > 140000 && nHeight <= 150000)
+        nSubsidy = 20	* COIN;
+	else if (nHeight > 150000 && nHeight <= 160000)
+        nSubsidy = 30	* COIN;
+	else if (nHeight > 160000 && nHeight <= 170000)
+        nSubsidy = 40	* COIN;
+	else if (nHeight > 170000 && nHeight <= 180000)
+        nSubsidy = 50	* COIN;
+	else if (nHeight > 180000 && nHeight <= 190000)
         nSubsidy = 60	* COIN;
-	else if (nHeight > 120000 && nHeight <= 125000)
+	else if (nHeight > 190000 && nHeight <= 200000)
+        nSubsidy = 70	* COIN;
+	else if (nHeight > 200000 && nHeight <= 210000)
+        nSubsidy = 80	* COIN;
+	else if (nHeight > 210000 && nHeight <= 220000)
         nSubsidy = 90	* COIN;
-	else if (nHeight > 125000 && nHeight <= 130000)
+	else if (nHeight > 220000 && nHeight <= 230000)
+        nSubsidy = 100	* COIN;
+	else if (nHeight > 230000 && nHeight <= 240000)
+        nSubsidy = 110	* COIN;
+	else if (nHeight > 240000 && nHeight <= 250000)
+        nSubsidy = 120	* COIN;
+	else if (nHeight > 250000 && nHeight <= 260000)
+        nSubsidy = 130	* COIN;
+	else if (nHeight > 260000 && nHeight <= 270000)
+        nSubsidy = 140	* COIN;
+	else if (nHeight > 270000 && nHeight <= 280000)
+        nSubsidy = 150	* COIN;
+	else if (nHeight > 280000 && nHeight <= 290000)
+        nSubsidy = 160	* COIN;
+	else if (nHeight > 290000 && nHeight <= 300000)
+        nSubsidy = 170	* COIN;
+	else if (nHeight > 300000 && nHeight <= 310000)
         nSubsidy = 180	* COIN;
-	else if (nHeight > 130000 && nHeight <= 135000)
+	else if (nHeight > 310000 && nHeight <= 320000)
+        nSubsidy = 190	* COIN;
+	else if (nHeight > 320000 && nHeight <= 330000)
+        nSubsidy = 200	* COIN;
+	else if (nHeight > 330000 && nHeight <= 340000)
+        nSubsidy = 210	* COIN;
+	else if (nHeight > 340000 && nHeight <= 350000)
+        nSubsidy = 220	* COIN;
+	else if (nHeight > 350000 && nHeight <= 360000)
         nSubsidy = 230	* COIN;
-	else if (nHeight > 135000 && nHeight <= 140000)
-        nSubsidy = 280	* COIN;
-	else if (nHeight > 140000 && nHeight <= 145000)
-        nSubsidy = 360	* COIN;
-	else if (nHeight > 145000 && nHeight <= 150000)
-        nSubsidy = 480	* COIN;
-	else if (nHeight > 150000 && nHeight <= 165000)
-        nSubsidy = 500	* COIN;
-	else if (nHeight > 165000 && nHeight <= 175000)
+	else if (nHeight > 360000 && nHeight <= 370000)
+        nSubsidy = 240	* COIN;
+	else if (nHeight > 370000 && nHeight <= 380000)
         nSubsidy = 250	* COIN;
     else 
         nSubsidy = 100 * COIN;
@@ -1698,7 +1730,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
         return 0;
 	else if (nHeight <= 24500)
         ret = blockValue * 0.9; // 90% of block reward
-	else if (nHeight > 24500 && nHeight <= 115000)
+	else if (nHeight > 24500 && nHeight <= 135000)
         ret = blockValue * 0.5; // 50% of block reward
     else
         ret = blockValue * 0.9; // 90% of block reward
@@ -5401,9 +5433,19 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-    if (chainActive.Height() >= SOFT_FORK_VERSION_110)
-       return MIN_PEER_PROTO_VERSION_COMMUNITY_PROPOSALS;
 
+    // SPORK_14 was used for 70914. Nodes < 70914 don't see it and still get their protocol version
+
+    if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT))
+            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+
+
+    // SPORK_15 is used for 70911. Nodes < 70911 don't see it and still get their protocol version via SPORK_14 and their
+    // own ModifierUpgradeBlock()
+
+/*    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
+            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+*/
     return MIN_PEER_PROTO_VERSION;
 }
 
