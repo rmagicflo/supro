@@ -2945,7 +2945,7 @@ Please check the address and try again.</source>
     </message>
     <message>
         <source>Copyright (C) %i The Supro Core Developers</source>
-        <translation>Copyright (C) 2017-%i Разработчики Supro Core</translation>
+        <translation>Copyright (C) %i Разработчики Supro Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

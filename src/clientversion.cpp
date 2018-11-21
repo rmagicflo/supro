@@ -33,7 +33,7 @@ const std::string CLIENT_NAME("Supro Core");
  * * then, three options exist for determining CLIENT_BUILD:
  *   * if BUILD_DESC is defined, use that literally (output of git-describe)
  *   * if not, but GIT_COMMIT is defined, use v[maj].[min].[rev].[build]-g[commit]
- *   * otherwise, use v[maj].[min].[rev].[build]
+ *   * otherwise, use v[maj].[min].[rev].[build]-unk
  * finally CLIENT_VERSION_SUFFIX is added
  */
 

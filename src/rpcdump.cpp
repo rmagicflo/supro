@@ -428,6 +428,7 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. \"spaddress\"   (string, required) The sp address for the private key (you must hold the key already)\n"
             "2. \"passphrase\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
+
             "\nResult:\n"
             "\"key\"                (string) The encrypted private key\n"
 
